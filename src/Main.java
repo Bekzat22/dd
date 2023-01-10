@@ -12,7 +12,7 @@ public class Main {
 
     public static int bossHealth = 700;
     public static int bossDamage = 50;
-    public  static int[] heroesHealth = {250, 200, 150,500};
+    public  static int[] heroesHealth = {250, 100, 150,150};
     public  static int[] heroesDamage = {20, 25, 30,0};
     public  static String[] heroesAttackType = {"Logan", "Cyclops","Wizard","Medic"};
     public  static String bossBarrier;
@@ -26,17 +26,15 @@ public class Main {
         }
     }
     public  static void Medic() {
-        boolean d = true;
        int heal =20;
         Random v=new Random();
         int a= v.nextInt(3);
+        if (heroesHealth[a] <= 100 && heroesHealth[a] > 0&&heroesHealth[3]>0) {
+                heroesHealth[a] += heal;
 
-            if (heroesHealth[a]<= 100 && heroesHealth[a]>0){
-                heroesHealth[a]+=heal;
-                if(heroesHealth[3]==0){
-                    d=false;
                 }
-                }
+
+           
             }
 
 
