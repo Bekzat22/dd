@@ -29,7 +29,7 @@ public class Main {
        int heal =20;
         Random v=new Random();
         int a= v.nextInt(3);
-        if (heroesHealth[a] <= 100 && heroesHealth[a] > 0&&heroesHealth[3]>0) {
+        if (heroesHealth[a] < 100 && heroesHealth[a] > 0&&heroesHealth[3]>0) {
                 heroesHealth[a] += heal;
 
                 }
