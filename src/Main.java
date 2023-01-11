@@ -25,17 +25,16 @@ public class Main {
             round();
         }
     }
-    public  static void Medic() {
-       int heal =20;
-        Random v=new Random();
-        int a= v.nextInt(3);
-        if (heroesHealth[a] < 100 && heroesHealth[a] > 0&&heroesHealth[3]>0) {
-                heroesHealth[a] += heal;
+   public  static void Medic() {
+        int heal = 20;
+        for (int i = 0; i < heroesHealth.length - 1; i++) {
+            if (heroesHealth[i] < 100 && heroesHealth[3] != 0 && heroesHealth[i] > 0) {
+                heroesHealth[i] += heal;
 
-                }
-
-           
             }
+
+        }
+    }
 
 
 
