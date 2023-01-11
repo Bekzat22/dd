@@ -25,15 +25,22 @@ public class Main {
             round();
         }
     }
-   public  static void Medic() {
-        int heal = 20;
-        for (int i = 0; i < heroesHealth.length - 1; i++) {
-            if (heroesHealth[i] < 100 && heroesHealth[3] != 0 && heroesHealth[i] > 0) {
+   public static void Medic() {
+        int indexMedic=0;
+        int heal = 100;
+
+        for (int i = 0; i < heroesHealth.length; i++) {
+            if (heroesAttackType[i].equals("Medic")) {
+                indexMedic = i;
+            }
+            if (heroesHealth[i] < 100 && heroesHealth[indexMedic] != heroesHealth[indexMedic] && heroesHealth[i] > 0 && heroesHealth[indexMedic] > 0) {
                 heroesHealth[i] += heal;
-                System.out.println("medic heals up"+heroesAttackType[i]);
+
+                System.out.println("medic heals up" + heroesAttackType[i]);
                 break;
 
             }
+
 
         }
     }
