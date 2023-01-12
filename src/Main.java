@@ -8,14 +8,15 @@
 import java.util.Arrays;
 import java.util.Random;
 public class Main {
-    public static String medicHealUp;
+
 
     public static int bossHealth = 700;
     public static int bossDamage = 50;
-    public  static int[] heroesHealth = {250, 100, 150,150};
+    public  static int[] heroesHealth = {90, 200, 250,200};
     public  static int[] heroesDamage = {20, 25, 30,0};
     public  static String[] heroesAttackType = {"Logan", "Cyclops","Wizard","Medic"};
     public  static String bossBarrier;
+    public static boolean  indexMedic;
 
 
 
@@ -25,22 +26,23 @@ public class Main {
             round();
         }
     }
-   public static void Medic() {
-        int indexMedic=0;
+    public static void Medic() {
+
         int heal = 100;
 
         for (int i = 0; i < heroesHealth.length; i++) {
-            if (heroesAttackType[i].equals("Medic")) {
-                indexMedic = i;
-            }
-            if (heroesHealth[i] < 100 && heroesHealth[indexMedic] != heroesHealth[indexMedic] && heroesHealth[i] > 0 && heroesHealth[indexMedic] > 0) {
-                heroesHealth[i] += heal;
+
+            if (heroesHealth[i] < 100  && heroesHealth[i] > 0) {
+                if (heroesAttackType[i].equals("Medic")){
+                    break;
+                }else {
+                    heroesHealth[i] += heal;
+                }
 
                 System.out.println("medic heals up" + heroesAttackType[i]);
                 break;
 
             }
-
 
         }
     }
@@ -77,8 +79,8 @@ public class Main {
             return true;
         }
         boolean allHeroesDead = true;
-        for (int i = 0; i < heroesHealth.length; i++) {
-            if (heroesHealth[i] > 0){
+        for (int j : heroesHealth) {
+            if (j > 0) {
                 allHeroesDead = false;
                 break;
             }
@@ -93,7 +95,7 @@ public class Main {
         for (int i = 0; i < heroesHealth.length; i++) {
             if (heroesHealth[i] > 0){
                 heroesHealth[i] -= bossDamage;
-                 if(heroesHealth[i]<0){
+                if(heroesHealth[i]<0){
                     heroesHealth[i]=0;
                 }
             }
@@ -115,6 +117,7 @@ public class Main {
     }
 
     public static void printStatistic(){
+        System.out.println();
         System.out.println("Boss health " + bossHealth + ", " + " damage [" + bossDamage + "]");
 
         for (int i = 0; i < heroesHealth.length; i++) {
